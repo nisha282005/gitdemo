@@ -1,9 +1,95 @@
-<!-- College Registration Form and Login Page with Inline CSS -->
-<!DOCTYPE html>
-<html lang="en">
+<!-- Co<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>College Registration & Login</title>
+  <title>ABC College Portal</title>
+  <script>
+    function showLogin() {
+      document.getElementById('registrationForm').style.display = 'none';
+      document.getElementById('loginForm').style.display = 'block';
+    }
+
+    function showRegister() {
+      document.getElementById('registrationForm').style.display = 'block';
+      document.getElementById('loginForm').style.display = 'none';
+    }
+
+    function validateRegistrationForm() {
+      const phone = document.getElementById('phone').value;
+      const phonePattern = /^[0-9]{10}$/;
+
+      if (!phonePattern.test(phone)) {
+        alert("Phone number must be exactly 10 digits.");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #f0f4f8; margin: 0; padding: 0;">
+
+  <h1 style="text-align: center; color: #004080; padding: 20px;">ABC College Portal</h1>
+
+  <!-- Registration Form -->
+  <div id="registrationForm" style="display: block; background-color: white; padding: 30px; margin: 40px auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); width: 400px;">
+    <h2 style="text-align: center; color: #0066cc;">College Registration</h2>
+    <form onsubmit="return validateRegistrationForm()">
+      <label style="display: block; margin-top: 15px;">Student Name:</label>
+      <input type="text" name="student_name" style="width: 100%; padding: 8px;" required>
+
+      <label style="display: block; margin-top: 15px;">College Name:</label>
+      <input type="text" value="ABC" readonly style="width: 100%; padding: 8px; background-color: #e6f0ff;">
+
+      <label style="display: block; margin-top: 15px;">College ID:</label>
+      <input type="text" name="college_id" style="width: 100%; padding: 8px;" required>
+
+      <label style="display: block; margin-top: 15px;">Email:</label>
+      <input type="email" name="email" style="width: 100%; padding: 8px;" required>
+
+      <label style="display: block; margin-top: 15px;">Phone:</label>
+      <input type="tel" id="phone" name="phone" style="width: 100%; padding: 8px;" pattern="[0-9]{10}" required>
+
+      <label style="display: block; margin-top: 15px;">Address:</label>
+      <textarea name="address" style="width: 100%; padding: 8px;" rows="3" required></textarea>
+
+      <label style="display: block; margin-top: 15px;">Create Password:</label>
+      <input type="password" name="password" style="width: 100%; padding: 8px;" required>
+
+      <button type="submit" style="margin-top: 20px; width: 100%; padding: 10px; background-color: #007acc; color: white; border: none; border-radius: 5px;">Register</button>
+
+      <p style="text-align: center; margin-top: 15px;">
+        Already registered? 
+        <a href="#" onclick="showLogin()" style="color: #0066cc; text-decoration: none;">Go to Login</a>
+      </p>
+    </form>
+  </div>
+
+  <!-- Login Form -->
+  <div id="loginForm" style="display: none; background-color: white; padding: 30px; margin: 40px auto; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); width: 350px;">
+    <h2 style="text-align: center; color: #0066cc;">Student Login</h2>
+    <form>
+      <label style="display: block; margin-top: 15px;">College ID:</label>
+      <input type="text" name="college_id" style="width: 100%; padding: 8px;" required>
+
+      <label style="display: block; margin-top: 15px;">Password:</label>
+      <input type="password" name="password" style="width: 100%; padding: 8px;" required>
+
+      <button type="submit" style="margin-top: 20px; width: 100%; padding: 10px; background-color: #007acc; color: white; border: none; border-radius: 5px;">Login</button>
+
+      <p style="text-align: center; margin-top: 15px;">
+        Not registered? 
+        <a href="#" onclick="showRegister()" style="color: #0066cc; text-decoration: none;">Go to Register</a>
+      </p>
+    </form>
+  </div>
+
+  <footer style="text-align: center; padding: 20px; background-color: #004080; color: white;">
+    &copy; 2025 ABC College Portal. All rights reserved.
+  </footer>
+
+</body>
+</html>
+registration & Login</title>
   <style>
     body {
     font-family: Arial, sans-serif;
